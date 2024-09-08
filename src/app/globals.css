@@ -22,4 +22,12 @@
   .tag {
     @apply text-sm inline-flex border border-[#222]/10 py-1 px-3 rounded-lg tracking-tight;
   }
+
+  .section-title {
+    @apply text-center text-3xl md:text-[3.375rem] md:leading-[3.75rem] font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text;
+  }
+
+  .section-description {
+    @apply text-center text-[1.37rem] leading-[30px] tracking-tight text-[#010D3E];
+  }
 }
