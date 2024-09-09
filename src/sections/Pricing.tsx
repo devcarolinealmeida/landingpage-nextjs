@@ -77,7 +77,7 @@ export const Pricing = () => {
             }) => (
               <div
                 className={twMerge(
-                  "p-10 border border-[#F1F1F1] rounded-3xl shadow-[0_7px_14px_#EAEAEA] max-w-xs w-full",
+                  "card",
                   inverse === true && "border-black bg-black text-white"
                 )}>
                 <div className="flex justify-between">
