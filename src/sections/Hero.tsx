@@ -1,18 +1,20 @@
+"use client";
 import ArrowIcon from "@/assets/arrow-right.svg";
 import cogImage from "@/assets/cog.png";
 import cylinderImage from "@/assets/cylinder.png";
 import noodleImage from "@/assets/noodle.png";
 import Image from "next/image";
+import { motion } from "framer-motion";
+
 
 export const Hero = () => {
   return (
-    <section className="pt-8 pb-20 md:pt-5 md:pb-10 bg-[radial-gradient(ellipse_200%100%_at_bottom_left,#183EC2,#EAEEFE_100%)] overflow-hidden">
+    <section
+      className="pt-8 pb-20 md:pt-5 md:pb-10 bg-[radial-gradient(ellipse_200%100%_at_bottom_left,#183EC2,#EAEEFE_100%)] overflow-hidden">
       <div className="container">
         <div className="md:flex items-center ">
           <div className="md:w-[478px]">
-            <div className="tag">
-              Version 2.0 is here
-            </div>
+            <div className="tag">Version 2.0 is here</div>
             <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text mt-6">
               Pathway to productivity
             </h1>
@@ -30,10 +32,19 @@ export const Hero = () => {
             </div>
           </div>
           <div className="mt-20 md:mt-0 md:h-[648px] md:flex-1 relative">
-            <Image
-              src={cogImage}
+            <motion.img
+              src={cogImage.src}
               className="md:absolute md:h-full md:w-auto md:max-w-none md:-left-6 lg:left-0"
               alt="Cog image"
+              animate={{
+                translateY: [-30, 30],
+              }}
+              transition={{
+                repeat: Infinity,
+                repeatType: "mirror",
+                duration: 2,
+                ease: "easeInOut",
+              }}
             />
             <Image
               src={cylinderImage}
