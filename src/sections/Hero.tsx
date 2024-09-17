@@ -4,13 +4,21 @@ import cogImage from "@/assets/cog.png";
 import cylinderImage from "@/assets/cylinder.png";
 import noodleImage from "@/assets/noodle.png";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 
 export const Hero = () => {
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start end', 'end start']
+  });
+  const translateY = useTransform(scrollYProgress, [0,1], [150, -150])
   return (
     <section
-      className="pt-8 pb-20 md:pt-5 md:pb-10 bg-[radial-gradient(ellipse_200%100%_at_bottom_left,#183EC2,#EAEEFE_100%)] overflow-hidden">
+      ref={heroRef}
+      className="pt-8 pb-20 md:pt-5 md:pb-10 bg-[radial-gradient(ellipse_200%100%_at_bottom_left,#183EC2,#EAEEFE_100%)] overflow-x-clip">
       <div className="container">
         <div className="md:flex items-center ">
           <div className="md:w-[478px]">
@@ -46,18 +54,24 @@ export const Hero = () => {
                 ease: "easeInOut",
               }}
             />
-            <Image
-              src={cylinderImage}
+            <motion.img
+              src={cylinderImage.src}
               className="hidden md:block -top-8 -left-32 md:absolute"
               alt=""
               width={220}
               height={220}
+              style={{
+                translateY: translateY
+              }}
             />
-            <Image
-              src={noodleImage}
+            <motion.img
+              src={noodleImage.src}
               className="hidden lg:block absolute top-[524px] left-[448px] rotate-[30deg]"
               width={220}
               alt=""
+              style={{
+                translateY: translateY
+              }}
             />
           </div>
         </div>
