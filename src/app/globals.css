@@ -6,10 +6,31 @@
   .btn {
     @apply px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center tracking-tight;
   }
-
+  
   .btn-primary {
-    @apply bg-black text-white;
+    @apply bg-[#fff] text-white relative overflow-hidden;
   }
+    .btn-primary::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      content: "";
+      background: #000;
+      transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
+    }
+    .btn-primary:hover::before {
+      transform: translate3d(0,-100%,0);
+    }
+    .btn-primary span {
+      position: relative;
+      mix-blend-mode: difference;
+      color: #000
+    }
+    .btn-primary span {
+      @apply bg-transparent text-white;
+    }
 
   .btn-text {
     @apply text-black bg-transparent;

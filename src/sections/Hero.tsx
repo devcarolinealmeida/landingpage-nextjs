@@ -32,7 +32,7 @@ export const Hero = () => {
               successes.
             </p>
             <div className="flex gap-1 items-center mt-[30px]">
-              <button className="btn btn-primary">Get for free</button>
+              <button className="btn btn-primary"><span>Get for free</span></button>
               <button className="btn btn-text gap-1">
                 <span>Learn more</span>
                 <ArrowIcon className="w-5 h-5" />
