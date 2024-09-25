@@ -2,12 +2,10 @@
 import ArrowRight from "@/assets/arrow-right.svg";
 import Logo from "@/assets/logosaas.png";
 import Image from "next/image";
-import MenuIcon from "@/assets/menu.svg";
 import Link from "next/link";
 import { useState } from "react";
-import { AnimatePresence, delay, motion } from "framer-motion";
-import { transform } from "next/dist/build/swc";
-import { exit } from "process";
+import { AnimatePresence, motion } from "framer-motion";
+import { Spiral as Hamburger } from 'hamburger-react';
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
@@ -95,7 +93,7 @@ export const Header = () => {
                 <span>Get for free</span>
               </button>
             </nav>
-            <MenuIcon className="w-5 h-5 md:hidden" onClick={toggleMenu} />
+            <Hamburger toggled={open} toggle={setOpen} />
             <AnimatePresence>
               {open && (
                 <motion.div
