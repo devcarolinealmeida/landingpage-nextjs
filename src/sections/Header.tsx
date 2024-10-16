@@ -9,9 +9,9 @@ import { Spiral as Hamburger } from 'hamburger-react';
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
-  const toggleMenu = () => {
+  /* const toggleMenu = () => {
     setOpen((prevOpen) => !prevOpen);
-  };
+  }; */
   const menuVars = {
     initial: {
       scaleY: 0,
@@ -93,7 +93,9 @@ export const Header = () => {
                 <span>Get for free</span>
               </button>
             </nav>
-            <Hamburger toggled={open} toggle={setOpen} />
+            <div className="block md:hidden">
+              <Hamburger toggled={open} toggle={setOpen} />
+            </div>
             <AnimatePresence>
               {open && (
                 <motion.div
